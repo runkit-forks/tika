@@ -118,7 +118,7 @@
   <mime-type type="application/cnrp+xml"/>
   <mime-type type="application/commonground"/>
   <mime-type type="application/conference-info+xml"/>
-  
+
   <mime-type type="application/coreldraw">
      <alias type="application/x-coreldraw"/>
      <alias type="application/x-cdr"/>
@@ -138,7 +138,7 @@
      </magic>
      <glob pattern="*.cdr"/>
   </mime-type>
-  
+
   <mime-type type="application/cpl+xml"/>
   <mime-type type="application/csta+xml"/>
   <mime-type type="application/cstadata+xml"/>
@@ -261,6 +261,67 @@
     <glob pattern="*.fts"/>
   </mime-type>
 
+  <mime-type type="application/font-cff">
+    <_comment>Adobe Compact Font Format</_comment>
+    <glob pattern="*.cff"/>
+  </mime-type>
+
+  <mime-type type="font/collection">
+    <_comment>Open Font Format Collection</_comment>
+    <tika:link>https://www.iana.org/assignments/media-types/font/collection</tika:link>
+
+    <glob pattern="*.ttc"/>
+  </mime-type>
+
+  <mime-type type="font/otf">
+    <_comment>OpenType Font Format</_comment>
+    <tika:link>https://www.iana.org/assignments/media-types/font/otf</tika:link>
+
+    <alias type="application/font-otf"/>
+  </mime-type>
+
+  <mime-type type="font/sfnt">
+    <_comment>Spline/Scalable Font Format</_comment>
+    <tika:link>https://en.wikipedia.org/wiki/SFNT</tika:link>
+
+    <alias type="application/font-sfnt"/>
+  </mime-type>
+
+  <mime-type type="font/ttf">
+    <_comment>TrueType Font Format</_comment>
+    <tika:link>https://www.iana.org/assignments/media-types/font/ttf</tika:link>
+
+    <alias type="application/font-ttf"/>
+
+    <glob pattern="*.ttf"/>
+  </mime-type>
+
+  <mime-type type="font/woff">
+    <_comment>Web Open Font Format 1.0</_comment>
+    <tika:link>https://www.iana.org/assignments/media-types/font/woff</tika:link>
+
+    <!-- Deprecated in favor of font/woff -->
+    <!-- https://www.iana.org/assignments/media-types/application/font-woff -->
+    <alias type="application/font-woff"/>
+
+    <magic priority="100">
+      <match value="wOFF" type="string" offset="0"/>
+    </magic>
+
+    <glob pattern="*.woff"/>
+  </mime-type>
+
+  <mime-type type="font/woff2">
+    <_comment>Web Open Font Format 2.0</_comment>
+    <tika:link>https://www.iana.org/assignments/media-types/font/woff2</tika:link>
+
+    <magic priority="100">
+      <match value="wOF2" type="string" offset="0"/>
+    </magic>
+
+    <glob pattern="*.woff2"/>
+  </mime-type>
+
   <mime-type type="application/font-tdpfr">
     <glob pattern="*.pfr"/>
   </mime-type>
@@ -336,12 +397,30 @@
     <glob pattern="*.ser"/>
   </mime-type>
 
-  <mime-type type="application/javascript">
+  <mime-type type="text/javascript">
+    <!-- This list is taken from: -->
+    <!-- https://mimesniff.spec.whatwg.org/#mime-type-groups -->
+    <alias type="application/ecmascript"/>
+    <alias type="application/javascript"/>
+    <alias type="application/x-ecmascript"/>
     <alias type="application/x-javascript"/>
-    <alias type="text/javascript"/>
+    <alias type="text/ecmascript"/>
+    <alias type="text/javascript1.0"/>
+    <alias type="text/javascript1.1"/>
+    <alias type="text/javascript1.2"/>
+    <alias type="text/javascript1.3"/>
+    <alias type="text/javascript1.4"/>
+    <alias type="text/javascript1.5"/>
+    <alias type="text/jscript"/>
+    <alias type="text/livescript"/>
+    <alias type="text/x-ecmascript"/>
+    <alias type="text/x-javascript"/>
     <sub-class-of type="text/plain"/>
     <_comment>JavaScript Source Code</_comment>
+
+    <glob pattern="*.mjs"/>
     <glob pattern="*.js"/>
+    <glob pattern="*.jsx"/>
 
     <!-- Note - there is no Unique Magic for JavaScript files! -->
     <!-- Generally you can only detect JS with the filename -->
@@ -370,7 +449,7 @@
   </mime-type>
 
   <mime-type type="application/json">
-    <sub-class-of type="application/javascript"/>
+    <sub-class-of type="text/javascript"/>
     <glob pattern="*.json"/>
   </mime-type>
 
@@ -1580,7 +1659,7 @@
   <mime-type type="application/vnd.iptc.g2.conceptitem+xml"/>
   <mime-type type="application/vnd.iptc.g2.knowledgeitem+xml"/>
   <mime-type type="application/vnd.iptc.g2.newsitem+xml"/>
-    
+
   <mime-type type="application/vnd.iptc.g2.newsmessage+xml">
     <root-XML localName="newsMessage"/>
     <root-XML localName="newsMessage" namespaceURI="http://iptc.org/std/nar/2006-10-01/"/>
@@ -1588,7 +1667,7 @@
     <_comment>XML syntax for IPTC NewsMessages</_comment>
     <glob pattern="*.nar"/>
   </mime-type>
-  
+
   <mime-type type="application/vnd.iptc.g2.packageitem+xml"/>
   <mime-type type="application/vnd.iptc.g2.planningitem+xml"/>
 
@@ -1695,7 +1774,7 @@
   <mime-type type="application/vnd.llamagraphics.life-balance.exchange+xml">
     <glob pattern="*.lbe"/>
   </mime-type>
-  
+
   <mime-type type="application/vnd.lotus-1-2-3">
     <alias type="application/x-123"/>
     <_comment>Lotus 1-2-3</_comment>
@@ -1706,7 +1785,7 @@
     <glob pattern="*.wk4"/>
     <glob pattern="*.123"/>
   </mime-type>
-  
+
   <mime-type type="application/vnd.lotus-1-2-3;version=1">
     <sub-class-of type="application/vnd.lotus-1-2-3"/>
     <_comment>Lotus 1-2-3, version 1</_comment>
@@ -1727,7 +1806,7 @@
     <glob pattern="*.wk1"/>
     <glob pattern="*.wk2"/>
   </mime-type>
-   
+
   <mime-type type="application/vnd.lotus-1-2-3;version=3">
     <sub-class-of type="application/vnd.lotus-1-2-3"/>
     <_comment>Lotus 1-2-3, version 3</_comment>
@@ -3150,12 +3229,12 @@
   <mime-type type="application/wspolicy+xml">
     <glob pattern="*.wspolicy"/>
   </mime-type>
-  
+
   <mime-type type="image/x-tga">
      <alias type="image/x-targa"/>
      <!-- trailer bytes: 54 52 55 45 56 49 53 49 4F 4E 2D 58 46 49 4C 45 2E 00
           trailer as string: TRUEVISION-XFILE\\x2E\\x00
-          Some .tga files may be conflicting with application/x-123 recognition, 
+          Some .tga files may be conflicting with application/x-123 recognition,
           therefore this mime-type must be set in front of application/x-123 -->
      <_comment>Targa image data</_comment>
      <magic priority="90">
@@ -4037,7 +4116,7 @@
       <match value="-lz5-" type="string" offset="2"/>
     </magic>
   </mime-type>
-  
+
   <mime-type type="application/x-lz4">
      <_comment>First match LZ4 Frame</_comment>
      <_comment>Second match Legacy Frame</_comment>
@@ -4047,7 +4126,6 @@
      </magic>
      <glob pattern="*.lz4"/>
   </mime-type>
-  
   <mime-type type="application/x-lzip">
     <_comment>Lzip (LZMA) compressed archive</_comment>
     <magic priority="50">
@@ -4055,11 +4133,11 @@
     </magic>
     <glob pattern="*.lz"/>
   </mime-type>
-  
+
   <mime-type type="application/x-lzma">
     <_comment>LZMA compressed archive</_comment>
     <glob pattern="*.lzma"/>
-  </mime-type>  
+  </mime-type>
 
   <mime-type type="application/x-memgraph">
     <_comment>Apple Xcode Memgraph</_comment>
@@ -4358,11 +4436,11 @@
     <glob pattern="*.wq2"/>
     <glob pattern="*.wkq"/>
   </mime-type>
-  
+
   <!-- First Quattro Pro for Windows had major version number 1, which
   was followed by 5. This is confusing, perhaps adding "win" qualifier to version
   field could clear this up (but it's quite ugly as well)   -->
-  
+
   <mime-type type="application/x-quattro-pro;version=1+5">
     <sub-class-of type="application/x-quattro-pro"/>
     <_comment>Quattro Pro for Windows, version 1, 5</_comment>
@@ -4382,7 +4460,7 @@
     </magic>
     <glob pattern="*.wb2"/>
   </mime-type>
-  
+
   <!-- Quattro Pro for Windows 7-8 (wb3) and and 9 (qpw) files are
        currently detected by POIFSContainerDetector
   -->
@@ -5431,7 +5509,7 @@
     <glob pattern="*.aiff"/>
     <glob pattern="*.aifc"/>
   </mime-type>
-  
+
   <mime-type type="audio/x-caf">
      <_comment>Core Audio Format</_comment>
      <_comment>com.apple.coreaudio-format</_comment>
@@ -5579,7 +5657,7 @@
       <match value="0x762F310102040000" type="string" offset="0"/>
     </magic>
     <glob pattern="*.exr"/>
-  </mime-type> 
+  </mime-type>
 
   <mime-type type="image/bmp">
     <alias type="image/x-bmp"/>
@@ -6474,7 +6552,7 @@
         <match value="\nX-Mailer:" type="string" offset="0:1024"/>
         <match value="\nX-Originating-IP:" type="stringignorecase" offset="0:1024"/>
         <match value="\nDKIM-" type="string" offset="0:1024"/>
-        <match value="\nARC-" type="string" offset="0:1024"/>        
+        <match value="\nARC-" type="string" offset="0:1024"/>
       </match>
       <!-- match X- DKIM- ARC- at start of file and then require at least one
            of the usual: from, received, date...but look farther into the file
