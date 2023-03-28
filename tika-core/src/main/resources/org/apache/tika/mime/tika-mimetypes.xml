@@ -7642,8 +7642,9 @@
     <sub-class-of type="text/plain"/>
   </mime-type>
 
-  <mime-type type="text/x-web-markdown">
+  <mime-type type="text/markdown">
     <_comment>Markdown source code</_comment>
+    <alias type="text/x-web-markdown"/>
     <glob pattern="*.md"/>
     <glob pattern="*.mdtext"/>
     <glob pattern="*.mkd"/>
